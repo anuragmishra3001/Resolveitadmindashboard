@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd resolve-it-admin && npm run build",
+  "outputDirectory": "resolve-it-admin/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+backend/
+src/
+node_modules/
+*.log
+.env*
