@@ -1,43 +1,11 @@
 import { 
-  Users, 
   TrendingUp, 
-  DollarSign, 
   Activity,
   ArrowUpRight,
   ArrowDownRight
 } from 'lucide-react'
 import { useSocket } from '@/contexts/SocketContext'
 
-const stats = [
-  {
-    name: 'Total Users',
-    value: '2,345',
-    change: '+12%',
-    changeType: 'positive',
-    icon: Users,
-  },
-  {
-    name: 'Revenue',
-    value: '$45,231',
-    change: '+8.2%',
-    changeType: 'positive',
-    icon: DollarSign,
-  },
-  {
-    name: 'Active Sessions',
-    value: '1,234',
-    change: '-2.1%',
-    changeType: 'negative',
-    icon: Activity,
-  },
-  {
-    name: 'Growth Rate',
-    value: '23.5%',
-    change: '+4.3%',
-    changeType: 'positive',
-    icon: TrendingUp,
-  },
-]
 
 const recentActivity = [
   { id: 1, user: 'John Doe', action: 'Created new account', time: '2 minutes ago' },

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import { io, Socket } from 'socket.io-client'
 
 interface SocketContextType {
@@ -54,7 +54,7 @@ export function SocketProvider({ children }: SocketProviderProps) {
 
   useEffect(() => {
     // Development mode - set to true to run without backend
-    const isDevelopmentMode = import.meta.env.DEV || true
+    const isDevelopmentMode = true // Development mode
     
     if (isDevelopmentMode) {
       console.log('🔌 Development mode: Mock WebSocket connection')

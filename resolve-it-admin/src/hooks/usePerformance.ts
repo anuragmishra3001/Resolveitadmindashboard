@@ -1,10 +1,5 @@
 import { useEffect, useRef } from 'react'
 
-interface PerformanceMetrics {
-  renderTime: number
-  componentName: string
-  timestamp: number
-}
 
 /**
  * Hook for monitoring component performance
@@ -33,16 +28,9 @@ export function usePerformance(componentName: string, enabled: boolean = true) {
         })
       }
 
-      // Store metrics for analysis
-      const metrics: PerformanceMetrics = {
-        renderTime,
-        componentName,
-        timestamp: Date.now()
-      }
-
       // Send to analytics or performance monitoring service
-      if (window.gtag) {
-        window.gtag('event', 'component_render', {
+      if ((window as any).gtag) {
+        (window as any).gtag('event', 'component_render', {
           component_name: componentName,
           render_time: renderTime,
           render_count: renderCount.current
@@ -69,7 +57,7 @@ export function usePerformance(componentName: string, enabled: boolean = true) {
  */
 export function useMeasureTime<T extends (...args: any[]) => any>(
   fn: T,
-  deps: React.DependencyList = []
+  _deps: any[] = []
 ): T {
   const fnRef = useRef(fn)
   fnRef.current = fn
@@ -122,8 +110,8 @@ export function useWebVitals() {
       const entries = list.getEntries()
       const lastEntry = entries[entries.length - 1]
       
-      if (window.gtag) {
-        window.gtag('event', 'web_vitals', {
+      if ((window as any).gtag) {
+        (window as any).gtag('event', 'web_vitals', {
           metric_name: 'LCP',
           metric_value: lastEntry.startTime,
           metric_rating: lastEntry.startTime < 2500 ? 'good' : 'poor'
@@ -135,11 +123,11 @@ export function useWebVitals() {
     const fidObserver = new PerformanceObserver((list) => {
       const entries = list.getEntries()
       entries.forEach((entry) => {
-        if (window.gtag) {
-          window.gtag('event', 'web_vitals', {
+        if ((window as any).gtag) {
+          (window as any).gtag('event', 'web_vitals', {
             metric_name: 'FID',
-            metric_value: entry.processingStart - entry.startTime,
-            metric_rating: entry.processingStart - entry.startTime < 100 ? 'good' : 'poor'
+            metric_value: (entry as any).processingStart - entry.startTime,
+            metric_rating: (entry as any).processingStart - entry.startTime < 100 ? 'good' : 'poor'
           })
         }
       })
@@ -156,8 +144,8 @@ export function useWebVitals() {
         }
       })
 
-      if (window.gtag) {
-        window.gtag('event', 'web_vitals', {
+      if ((window as any).gtag) {
+        (window as any).gtag('event', 'web_vitals', {
           metric_name: 'CLS',
           metric_value: clsValue,
           metric_rating: clsValue < 0.1 ? 'good' : 'poor'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Save, Bell, Shield, Globe, Database } from 'lucide-react'
+import { Save, Bell, Shield, Globe } from 'lucide-react'
 
 export function Settings() {
   const [settings, setSettings] = useState({

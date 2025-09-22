@@ -1,4 +1,4 @@
-import { BarChart3, TrendingUp, Users, Eye, MousePointer } from 'lucide-react'
+import { TrendingUp, Users, Eye, MousePointer } from 'lucide-react'
 
 const analyticsData = [
   { name: 'Jan', users: 4000, pageViews: 2400, clicks: 2400 },
@@ -83,7 +83,7 @@ export function Analytics() {
             </div>
           </div>
           <div className="h-64 flex items-end space-x-2">
-            {analyticsData.map((data, index) => (
+            {analyticsData.map((data) => (
               <div key={data.name} className="flex-1 flex flex-col items-center">
                 <div
                   className="w-full bg-blue-500 rounded-t"
@@ -105,7 +105,7 @@ export function Analytics() {
             </div>
           </div>
           <div className="h-64 flex items-end space-x-2">
-            {analyticsData.map((data, index) => (
+            {analyticsData.map((data) => (
               <div key={data.name} className="flex-1 flex flex-col items-center">
                 <div
                   className="w-full bg-green-500 rounded-t"

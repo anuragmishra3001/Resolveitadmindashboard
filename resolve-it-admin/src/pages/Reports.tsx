@@ -1,25 +1,17 @@
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { 
   FileText, 
-  Download, 
-  Calendar, 
   Filter, 
   Search,
-  MapPin,
-  Clock,
-  Eye,
   ChevronLeft,
   ChevronRight,
   X,
   RotateCcw,
-  Edit3,
   Check,
-  Tag,
   Loader2
 } from 'lucide-react'
 import { useSocket } from '@/contexts/SocketContext'
 import { useDebouncedSearch } from '@/hooks/useDebounce'
-import { OptimizedImage } from '@/components/OptimizedImage'
 import { ReportCard } from '@/components/ReportCard'
 
 const civicReports = [
@@ -130,7 +122,7 @@ const categories = [
 ]
 
 export function Reports() {
-  const { socket, isConnected, reports: realtimeReports, stats } = useSocket()
+  const { reports: realtimeReports, stats } = useSocket()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedStatus, setSelectedStatus] = useState('All')

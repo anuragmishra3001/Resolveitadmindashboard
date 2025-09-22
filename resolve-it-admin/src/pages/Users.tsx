@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Search, Filter, Plus, MoreVertical, Edit, Trash2 } from 'lucide-react'
+import { Search, Filter, Plus, MoreVertical, Edit } from 'lucide-react'
 
 const users = [
   { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Admin', status: 'Active', lastLogin: '2 hours ago' },

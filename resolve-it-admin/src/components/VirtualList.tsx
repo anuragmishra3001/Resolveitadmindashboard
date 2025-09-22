@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, memo } from 'react'
+import { useState, useRef, useMemo, memo } from 'react'
 
 interface VirtualListProps<T> {
   items: T[]

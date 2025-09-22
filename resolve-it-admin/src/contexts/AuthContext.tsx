@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 interface User {
   id: string
@@ -30,7 +30,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isLoading, setIsLoading] = useState(true)
   
   // Development mode - set to true to run without backend
-  const isDevelopmentMode = import.meta.env.DEV || true
+  const isDevelopmentMode = true // Development mode
 
   // Check for existing token on mount
   useEffect(() => {
